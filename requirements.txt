@@ -3,3 +3,6 @@ pytest>=7.4.0
 fastapi
 uvicorn
 pydantic
+email-validator
+dotenv
+fastapi-pagination

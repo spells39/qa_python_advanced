@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Tony Soprano",
+    "role": "Mob Boss",
+    "status": "Active",
+    "email": "tony.soprano@bada-bing.com"
+  },
+  {
+    "id": 2,
+    "name": "Carmela Soprano",
+    "role": "Housewife",
+    "status": "Active",
+    "email": "carmela.soprano@example.com"
+  },
+  {
+    "id": 3,
+    "name": "Christopher Moltisanti",
+    "role": "Capo",
+    "status": "Deceased",
+    "email": "chrissy.moltisanti@example.com"
+  },
+  {
+    "id": 4,
+    "name": "Paulie 'Walnuts' Gualtieri",
+    "role": "Soldier",
+    "status": "Active",
+    "email": "paulie.walnuts@example.com"
+  },
+  {
+    "id": 5,
+    "name": "Dr. Jennifer Melfi",
+    "role": "Psychiatrist",
+    "status": "Retired",
+    "email": "jennifer.melfi@example.com"
+  },
+  {
+    "id": 6,
+    "name": "Silvio Dante",
+    "role": "Consigliere",
+    "status": "Active",
+    "email": "silvio.dante@bada-bing.com"
+  },
+  {
+    "id": 7,
+    "name": "Adriana La Cerva",
+    "role": "Club Manager",
+    "status": "Deceased",
+    "email": "adriana.lacerva@example.com"
+  },
+  {
+    "id": 8,
+    "name": "Meadow Soprano",
+    "role": "Law Student",
+    "status": "Active",
+    "email": "meadow.soprano@example.com"
+  },
+  {
+    "id": 9,
+    "name": "Bobby 'Bacala' Baccalieri",
+    "role": "Underboss",
+    "status": "Deceased",
+    "email": "bobby.bacala@example.com"
+  },
+  {
+    "id": 10,
+    "name": "Junior Soprano",
+    "role": "Former Boss",
+    "status": "Incarcerated",
+    "email": "junior.soprano@example.com"
+  }
+]
