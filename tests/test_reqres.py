@@ -11,9 +11,40 @@ from utils.constants import local_url, headers, users_for_create, updated_users,
     data_for_test_pagination
 from utils.helpers import check_user
 
-users = Path(__file__).parent.parent / "utils" / "users.json"
-with open(users, "r") as f:
-    users = [User(**us) for us in json.load(f)]
+#users = Path(__file__).parent.parent / "utils" / "users.json"
+#with open(users, "r") as f:
+#    users = [User(**us) for us in json.load(f)]
+
+@pytest.mark.parametrize('page_size', [2, 3, 4, 5, 6, 7, 8, 9, 10])
+def test_pagination_diff_pages(app_url, page_size, users):
+    page_count = len(users) // page_size if len(users) % page_size == 0 else (len(users) // page_size) + 1
+    for page in range(page_count):
+        resp = requests.get(url=f"{app_url}/api/get_users", params={"page": page + 1, "page_size": page_size})
+        assert resp.status_code == HTTP_200_OK
+        assert resp.json()['page'] == page + 1
+        assert resp.json()['pages'] == page_count
+        assert resp.json()['size'] == page_size
+
+def test_pagination_all_users(app_url, users):
+    u = users
+    resp = requests.get(url=f"{app_url}/api/get_users", params={"page": 1, "page_size": len(users)})
+    assert resp.status_code == HTTP_200_OK
+    assert resp.json()['pages'] == 1
+    assert resp.json()['size'] == len(users)
+    assert resp.json()['total'] == len(users)
+
+def test_pagination_diff_pages_diff_data(app_url, users):
+    size_1 = len(users) // 2
+    size_2 = len(users) - size_1
+    resp_1 = requests.get(url=f"{app_url}/api/get_users", params={"page": 1, "page_size": size_1})
+    assert resp_1.status_code == HTTP_200_OK
+    assert resp_1.json()['size'] == size_1
+    resp_2 = requests.get(url=f"{app_url}/api/get_users", params={"page": 2, "page_size": size_2})
+    assert resp_2.status_code == HTTP_200_OK
+    assert resp_2.json()['size'] == size_2
+    resp_1_users = [User(**us) for us in resp_1.json()['items']]
+    resp_2_users = [User(**us) for us in resp_2.json()['items']]
+    assert resp_1_users != resp_2_users
 
 @pytest.mark.parametrize('page_id, page_size, expected_ids', data_for_test_pagination)
 def test_pagination(app_url, page_id, page_size, expected_ids):
