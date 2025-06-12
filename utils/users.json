@@ -1,72 +1,72 @@
 [
   {
-    "id": 1,
     "name": "Tony Soprano",
     "role": "Mob Boss",
     "status": "Active",
-    "email": "tony.soprano@bada-bing.com"
+    "email": "tony.soprano@bada-bing.com",
+    "avatar": "https://i.imgur.com/JqYeZ5W.jpg"
   },
   {
-    "id": 2,
     "name": "Carmela Soprano",
     "role": "Housewife",
     "status": "Active",
-    "email": "carmela.soprano@example.com"
+    "email": "carmela.soprano@example.com",
+    "avatar": "https://i.imgur.com/LpV9m3D.jpg"
   },
   {
-    "id": 3,
     "name": "Christopher Moltisanti",
     "role": "Capo",
     "status": "Deceased",
-    "email": "chrissy.moltisanti@example.com"
+    "email": "chrissy.moltisanti@example.com",
+    "avatar": "https://i.imgur.com/NdQvT7s.jpg"
   },
   {
-    "id": 4,
     "name": "Paulie 'Walnuts' Gualtieri",
     "role": "Soldier",
     "status": "Active",
-    "email": "paulie.walnuts@example.com"
+    "email": "paulie.walnuts@example.com",
+    "avatar": "https://i.imgur.com/VgK5x8R.jpg"
   },
   {
-    "id": 5,
     "name": "Dr. Jennifer Melfi",
     "role": "Psychiatrist",
     "status": "Retired",
-    "email": "jennifer.melfi@example.com"
+    "email": "jennifer.melfi@example.com",
+    "avatar": "https://i.imgur.com/QzY9vGp.jpg"
   },
   {
-    "id": 6,
     "name": "Silvio Dante",
     "role": "Consigliere",
     "status": "Active",
-    "email": "silvio.dante@bada-bing.com"
+    "email": "silvio.dante@bada-bing.com",
+    "avatar": "https://i.imgur.com/7KmWt6F.jpg"
   },
   {
-    "id": 7,
     "name": "Adriana La Cerva",
     "role": "Club Manager",
     "status": "Deceased",
-    "email": "adriana.lacerva@example.com"
+    "email": "adriana.lacerva@example.com",
+    "avatar": "https://i.imgur.com/9Rk8YfN.jpg"
   },
   {
-    "id": 8,
     "name": "Meadow Soprano",
     "role": "Law Student",
     "status": "Active",
-    "email": "meadow.soprano@example.com"
+    "email": "meadow.soprano@example.com",
+    "avatar": "https://i.imgur.com/2sPm7dT.jpg"
   },
   {
-    "id": 9,
     "name": "Bobby 'Bacala' Baccalieri",
     "role": "Underboss",
     "status": "Deceased",
-    "email": "bobby.bacala@example.com"
+    "email": "bobby.bacala@example.com",
+    "avatar": "https://i.imgur.com/5vZb1Yx.jpg"
   },
   {
-    "id": 10,
     "name": "Junior Soprano",
     "role": "Former Boss",
     "status": "Incarcerated",
-    "email": "junior.soprano@example.com"
+    "email": "junior.soprano@example.com",
+    "avatar": "https://i.imgur.com/Vm4Bd9L.jpg"
   }
 ]
