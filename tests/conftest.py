@@ -20,7 +20,7 @@ def app_url():
 def cleanup_after_tests():
     dotenv.load_dotenv()
     from app.database.engine import drop_db_tables, create_db_tables
-    #drop_db_tables()
+    drop_db_tables()
     create_db_tables()
     yield
 
