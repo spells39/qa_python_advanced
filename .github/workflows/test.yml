@@ -11,6 +11,7 @@ jobs:
     env:
       POSTGRES_USER: ci
       POSTGRES_PASSWORD: ci123
+      DATABASE_ENGINE: postgresql+psycopg2://${POSTGRES_USER?}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_USER}
     steps:
       - uses: actions/checkout@v4
       - run: cp .env.sample .env
