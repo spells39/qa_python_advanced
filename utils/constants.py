@@ -1,6 +1,6 @@
 headers = {'x-api-key': 'reqres-free-v1'}
 
-local_url = 'http://localhost:8000'
+local_url = 'http://127.0.0.1:8002'
 
 unknown_users = [{'id': 23, 'name': 'some_user'}, {'id': 5, 'name': 'aboba_user'}]
 
