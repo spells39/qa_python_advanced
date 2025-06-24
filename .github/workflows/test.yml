@@ -13,6 +13,7 @@ jobs:
       POSTGRES_PASSWORD: ci123
     steps:
       - uses: actions/checkout@v4
+      - run: cp .env.sample .env
       - uses: actions/setup-python@v5
         with:
           python-version: '3.10'
