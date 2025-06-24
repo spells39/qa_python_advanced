@@ -7,6 +7,8 @@ import json
 import requests
 from starlette.status import HTTP_200_OK
 
+from app.database.engine import check_db
+
 
 @pytest.fixture(scope="session", autouse=True)
 def envs():
@@ -20,8 +22,9 @@ def app_url():
 def cleanup_after_tests():
     dotenv.load_dotenv()
     from app.database.engine import drop_db_tables, create_db_tables
-    drop_db_tables()
-    create_db_tables()
+    if check_db():
+        drop_db_tables()
+        create_db_tables()
     yield
 
 @pytest.fixture(scope="module")
