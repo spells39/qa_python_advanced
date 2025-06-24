@@ -4,7 +4,7 @@ from sqlalchemy import inspect
 from sqlalchemy.orm import Session
 from sqlmodel import create_engine, SQLModel, text
 
-engine = create_engine(os.getenv("DATABASE_ENGINE"), pool_size=int(os.getenv("DATABASE_POOL_SIZE", 5)))
+engine = create_engine(os.getenv("DATABASE_ENGINE"), pool_size=int(os.getenv("DATABASE_POOL_SIZE", 10)))
 
 def create_db_tables():
     SQLModel.metadata.create_all(engine)
