@@ -12,7 +12,7 @@ jobs:
       POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
       DATABASE_ENGINE: postgresql+psycopg2://${POSTGRES_USER?}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_USER}
       DATABASE_POOL_SIZE: 10
-      APP_URL: http://127.0.0.1:8002
+      APP_URL: http://app:8002
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -22,7 +22,10 @@ jobs:
       - run: pip install --upgrade -r requirements.txt
       - run: docker compose build
       - run: docker compose up -d
-      - run: sleep 5
+      - name: Wait for services to be ready
+          run: |
+            docker compose run --rm wait-for -c postgres:5432 --timeout 30
+            docker compose run --rm wait-for -c app:8002 --timeout 30
       - run: pytest tests --junit-xml=test-results.xml
         env:
           APP_URL: http://127.0.0.1:8002
