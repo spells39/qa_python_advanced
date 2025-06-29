@@ -1,11 +1,51 @@
 import requests
 import pytest
+import dotenv
+from pathlib import Path
+import json
 
 from starlette.status import HTTP_200_OK, HTTP_404_NOT_FOUND, HTTP_204_NO_CONTENT, HTTP_422_UNPROCESSABLE_ENTITY, \
     HTTP_405_METHOD_NOT_ALLOWED
 
+from app.database.engine import check_db
 from app.models.models import User, UserCreate, UserPatch
 from utils.constants import users_for_create, updated_users, user_ids, id_with_status, invalid_data
+
+
+@pytest.fixture(scope="session", autouse=True)
+def cleanup_after_tests():
+    dotenv.load_dotenv()
+    from app.database.engine import drop_db_tables, create_db_tables
+    if check_db():
+        drop_db_tables()
+        create_db_tables()
+    yield
+
+@pytest.fixture(scope="module")
+def fill_db(app_url):
+    path = Path(__file__).parent.parent / "utils" / "users.json"
+    with open(path) as f:
+        users = json.load(f)
+    api_users = []
+    for user in users:
+        resp = requests.post(url=f"{app_url}/api/users/", json=user)
+        api_users.append(resp.json())
+
+    yield api_users
+
+    for user in api_users:
+        resp = requests.delete(url=f"{app_url}/api/users/{user['id']}")
+
+@pytest.fixture
+def users_from_db(app_url):
+
+    def get_users():
+        resp = requests.get(url=f"{app_url}/api/users/")
+        assert resp.status_code == HTTP_200_OK
+        return resp.json()
+
+    return get_users
+
 
 class TestUser:
     @pytest.mark.parametrize('user', users_for_create)
