@@ -1,3 +1,5 @@
+import logging
+
 import pytest
 import json
 import dotenv
@@ -79,6 +81,7 @@ class TestUsers:
 
     @pytest.mark.parametrize('user_id', user_ids['exist'])
     def test_delete_existed_user(self, user_id, env):
+        logging.info(f"Using env: {env}")
         resp = ServiceModel(env).delete_user(user_id)
         assert resp.status_code == HTTP_204_NO_CONTENT
 

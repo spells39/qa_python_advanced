@@ -1,3 +1,4 @@
+import logging
 import os
 import time
 
@@ -27,7 +28,9 @@ def pytest_addoption(parser):
 
 @pytest.fixture(scope="session")
 def env(request):
-    return request.config.getoption("--env", default="dev")
+    envt = request.config.getoption("--env", default="dev")
+    logging.info(f"Using env: {envt}")
+    return envt
 
 
 @pytest.fixture(scope='session')
