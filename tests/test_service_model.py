@@ -30,7 +30,7 @@ def cleanup_after_tests():
     yield
 
 
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="module")
 def fill_db(env):
     path = Path(__file__).parent.parent / "utils" / "users.json"
     with open(path) as f:

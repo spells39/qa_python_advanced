@@ -20,6 +20,7 @@ def cleanup_after_tests():
         drop_db_tables()
         create_db_tables()
     yield
+    drop_db_tables()
 
 @pytest.fixture(scope="module")
 def fill_db(app_url):
