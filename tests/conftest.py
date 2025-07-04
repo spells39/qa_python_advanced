@@ -2,6 +2,9 @@ import os
 import time
 
 import dotenv
+
+dotenv.load_dotenv()
+
 import pytest
 
 from config import Server
