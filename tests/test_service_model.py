@@ -28,6 +28,9 @@ def cleanup_after_tests():
         drop_db_tables()
         create_db_tables()
     yield
+    if check_db():
+        drop_db_tables()
+        create_db_tables()
 
 
 @pytest.fixture(scope="module")

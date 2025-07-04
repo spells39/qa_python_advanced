@@ -20,6 +20,9 @@ def cleanup_after_tests():
         drop_db_tables()
         create_db_tables()
     yield
+    if check_db():
+        drop_db_tables()
+        create_db_tables()
 
 @pytest.fixture(scope="module")
 def fill_db(app_url):
@@ -47,6 +50,7 @@ def users_from_db(app_url):
     return get_users
 
 
+@pytest.masrk.usefixtures("cleanup_after_tests")
 class TestUser:
     @pytest.mark.parametrize('user', users_for_create)
     def test_create_user(self, user, app_url, users_from_db):
