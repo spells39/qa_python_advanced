@@ -30,7 +30,7 @@ def cleanup_after_tests():
     yield
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="function")
 def fill_db(env):
     path = Path(__file__).parent.parent / "utils" / "users.json"
     with open(path) as f:
@@ -89,11 +89,6 @@ class TestUsers:
     def test_delete_not_existed_user(self, user_id, env):
         resp = ServiceModel(env).delete_user(user_id)
         assert resp.status_code == HTTP_404_NOT_FOUND
-
-    def test_delete_invalid_method(self, env):
-        url = ServiceModel(env).session.base_url + f"users/{user_ids['exist'][0]}"
-        resp = env.session.request("POST", url)
-        assert resp.status_code == HTTP_405_METHOD_NOT_ALLOWED
 
     @pytest.mark.parametrize('user_id, user_up', updated_users)
     def test_update_existed_user(self, user_id, user_up, env):

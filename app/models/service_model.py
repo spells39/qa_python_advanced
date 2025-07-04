@@ -5,6 +5,7 @@ from utils.base_session import BaseSession
 
 class ServiceModel:
     def __init__(self, env):
+        self.base_url = Server(env).service
         self.session = BaseSession(base_url=Server(env).service)
 
     def get_user(self, user_id: int):
