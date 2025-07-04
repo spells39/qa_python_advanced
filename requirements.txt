@@ -1,5 +1,12 @@
 requests>=2.31.0
 pytest>=7.4.0
-fastapi
+fastapi[standard]
 uvicorn
 pydantic
+email-validator
+dotenv
+fastapi-pagination
+
+psycopg2-binary
+sqlalchemy
+sqlmodel

@@ -1,0 +1,47 @@
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  tests:
+    name: Test app
+    runs-on: ubuntu-latest
+    env:
+      POSTGRES_USER: ci
+      POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+      DATABASE_ENGINE: postgresql+psycopg2://ci:${POSTGRES_PASSWORD}@db:5432/ci
+      DATABASE_POOL_SIZE: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+      - run: pip install --upgrade -r requirements.txt
+      - run: docker compose build
+      - run: docker compose up -d
+      - run: |
+          until docker compose exec db pg_isready; do
+            sleep 1
+          done
+      - run: |
+          until curl -s http://localhost:8000/api/check_status; do
+            sleep 2
+          done
+      - run: pytest tests --junit-xml=test-results.xml
+        env:
+          APP_URL: http://localhost:8000
+
+      - run: docker compose logs app
+        if: always()
+
+      - name: Surface failing tests
+        if: always()
+        uses: pmeier/pytest-results-action@main
+        with:
+          path: test-results.xml
+          summary: true
+          display-options: fEX
+          fail-on-empty: true
+          title: Test results

@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Tony Soprano",
+    "role": "Mob Boss",
+    "status": "Active",
+    "email": "tony.soprano@bada-bing.com",
+    "avatar": "https://i.imgur.com/JqYeZ5W.jpg"
+  },
+  {
+    "name": "Carmela Soprano",
+    "role": "Housewife",
+    "status": "Active",
+    "email": "carmela.soprano@example.com",
+    "avatar": "https://i.imgur.com/LpV9m3D.jpg"
+  },
+  {
+    "name": "Christopher Moltisanti",
+    "role": "Capo",
+    "status": "Deceased",
+    "email": "chrissy.moltisanti@example.com",
+    "avatar": "https://i.imgur.com/NdQvT7s.jpg"
+  },
+  {
+    "name": "Paulie 'Walnuts' Gualtieri",
+    "role": "Soldier",
+    "status": "Active",
+    "email": "paulie.walnuts@example.com",
+    "avatar": "https://i.imgur.com/VgK5x8R.jpg"
+  },
+  {
+    "name": "Dr. Jennifer Melfi",
+    "role": "Psychiatrist",
+    "status": "Retired",
+    "email": "jennifer.melfi@example.com",
+    "avatar": "https://i.imgur.com/QzY9vGp.jpg"
+  },
+  {
+    "name": "Silvio Dante",
+    "role": "Consigliere",
+    "status": "Active",
+    "email": "silvio.dante@bada-bing.com",
+    "avatar": "https://i.imgur.com/7KmWt6F.jpg"
+  },
+  {
+    "name": "Adriana La Cerva",
+    "role": "Club Manager",
+    "status": "Deceased",
+    "email": "adriana.lacerva@example.com",
+    "avatar": "https://i.imgur.com/9Rk8YfN.jpg"
+  },
+  {
+    "name": "Meadow Soprano",
+    "role": "Law Student",
+    "status": "Active",
+    "email": "meadow.soprano@example.com",
+    "avatar": "https://i.imgur.com/2sPm7dT.jpg"
+  },
+  {
+    "name": "Bobby 'Bacala' Baccalieri",
+    "role": "Underboss",
+    "status": "Deceased",
+    "email": "bobby.bacala@example.com",
+    "avatar": "https://i.imgur.com/5vZb1Yx.jpg"
+  },
+  {
+    "name": "Junior Soprano",
+    "role": "Former Boss",
+    "status": "Incarcerated",
+    "email": "junior.soprano@example.com",
+    "avatar": "https://i.imgur.com/Vm4Bd9L.jpg"
+  }
+]
