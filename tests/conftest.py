@@ -11,6 +11,11 @@ from config import Server
 from utils.base_session import BaseSession
 
 
+@pytest.fixture(scope="session", autouse=True)
+def envs():
+    dotenv.load_dotenv()
+
+
 @pytest.fixture(scope="session")
 def app_url():
     return os.getenv("APP_URL")
@@ -19,9 +24,10 @@ def app_url():
 def pytest_addoption(parser):
     parser.addoption("--env", default="dev")
 
+
 @pytest.fixture(scope="session")
 def env(request):
-    return request.config.getoption("--env")
+    return request.config.getoption("--env", default="dev")
 
 
 @pytest.fixture(scope='session')
