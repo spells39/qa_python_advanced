@@ -26,7 +26,7 @@ jobs:
             sleep 1
           done
       - run: |
-          until curl -s http://app:8000/api/check_status; do
+          until curl -s http://localhost:8000/api/check_status; do
             sleep 2
           done
       - run: pytest tests --junit-xml=test-results.xml
