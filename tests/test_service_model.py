@@ -20,7 +20,7 @@ from app.models.service_model import ServiceModel
 from utils.constants import users_for_create, updated_users, user_ids, id_with_status, invalid_data
 
 
-@pytest.fixture(scope="class", autouse=True)
+@pytest.fixture(scope="module", autouse=True)
 def cleanup_after_tests():
     dotenv.load_dotenv()
     from app.database.engine import drop_db_tables, create_db_tables
