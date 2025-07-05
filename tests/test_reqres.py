@@ -12,7 +12,7 @@ from app.models.models import User, UserCreate, UserPatch
 from utils.constants import users_for_create, updated_users, user_ids, id_with_status, invalid_data
 
 
-@pytest.fixture(scope="module", autouse=True)
+@pytest.fixture(scope="class", autouse=True)
 def cleanup_after_tests():
     dotenv.load_dotenv()
     from app.database.engine import drop_db_tables, create_db_tables
