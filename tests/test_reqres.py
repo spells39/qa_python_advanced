@@ -50,7 +50,6 @@ def users_from_db(app_url):
     return get_users
 
 
-@pytest.masrk.usefixtures("cleanup_after_tests")
 class TestUser:
     @pytest.mark.parametrize('user', users_for_create)
     def test_create_user(self, user, app_url, users_from_db):
