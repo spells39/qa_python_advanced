@@ -10,7 +10,7 @@ jobs:
     env:
       POSTGRES_USER: ci
       POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-      DATABASE_ENGINE: postgresql+psycopg2://ci:${POSTGRES_PASSWORD}@db:5432/ci
+      DATABASE_ENGINE: postgresql+psycopg2://ci:ci12345@localhost:5432/ci
       DATABASE_POOL_SIZE: 10
     steps:
       - uses: actions/checkout@v4

@@ -6,6 +6,7 @@ pydantic
 email-validator
 dotenv
 fastapi-pagination
+curlify
 
 psycopg2-binary
 sqlalchemy
